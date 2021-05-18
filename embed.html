@@ -1,0 +1,25 @@
+
+  <noscript><strong>We're sorry but uk-map doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+  <div id=app csv=data.csv></div>
+  <script>
+    window.PGRConfig = {
+      "baseUrl": "http://0.0.0.0:8000/",
+      "CSVPath": "data.csv",
+      "geoJSONPath": "geo/custom.geo.json",
+      "events": {
+        "markerClick": function(latLng) {
+          ga("gtm17.send", {hitType: "event", eventCategory: "Map", eventAction: "MarkerClick", eventLabel: '' + latLng.lat + ', ' +latLng.lng});
+        },
+        "tagClick": function(tag) {
+          ga("gtm17.send", {hitType: "event", eventCategory: "Map", eventAction: "TagClick", eventLabel: '' + tag});
+        },
+        "locationSelect": function(location) {
+          ga("gtm17.send", {hitType: "event", eventCategory: "Map", eventAction: "LocationClick", eventLabel: '' + location});
+        },
+        "storyOpen": function(story) {
+          ga("gtm17.send", {hitType: "event", eventCategory: "Map", eventAction: "StoryClick", eventLabel: '' + story.name + ', ' + story.location});
+        }
+      }
+    };
+  </script>
+  <script src="init.js"></script>
